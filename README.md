@@ -3,7 +3,7 @@
 
 ## Click here to view the project: 
 
-        [Concert] (http://46.105.29.192:8080/ “Concert”)  
+        [Concert] (http://46.105.29.192:8080/)  
 
 
 ## USER FUNCTIONALITIES
