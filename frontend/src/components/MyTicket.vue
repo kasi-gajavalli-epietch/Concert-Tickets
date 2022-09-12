@@ -1,22 +1,39 @@
 <template>
-  <qrcode-vue :value="'http://localhost:8080/profile/' + this.user_id" :size="size" level="H" />
+  <qrcode-vue
+    :value="'http://46.105.29.192:8080/profile/' + this.user_id"
+    :size="size"
+    level="H"
+  />
   <div>
     <div class="container">
       <h1 class="upcoming">upcoming gigs</h1>
       <div class="item" v-for="ticket in this.tickets" v-bind:key="ticket._id">
         <div class="item-right">
           <h2 class="num">{{ new Date(ticket.concert_show_date).getDay() }}</h2>
-          <p class="day">{{ new Date(ticket.concert_show_date).toLocaleString('default', {
-              month: 'long'
-            }).toUpperCase().substring(0, 4)
-          }}</p>
-          <p class="hour">{{ new Date(ticket.concert_show_date).toLocaleString('default', {
-              hours: 'long'
-            }).toUpperCase().substring(10, 20)
-          }}</p>
+          <p class="day">
+            {{
+              new Date(ticket.concert_show_date)
+                .toLocaleString("default", {
+                  month: "long",
+                })
+                .toUpperCase()
+                .substring(0, 4)
+            }}
+          </p>
+          <p class="hour">
+            {{
+              new Date(ticket.concert_show_date)
+                .toLocaleString("default", {
+                  hours: "long",
+                })
+                .toUpperCase()
+                .substring(10, 20)
+            }}
+          </p>
           <span class="up-border"></span>
           <span class="down-border"></span>
-        </div> <!-- end item-right -->
+        </div>
+        <!-- end item-right -->
 
         <div class="item-left">
           <p class="event">Music Event</p>
@@ -46,14 +63,16 @@
           </div>
           <div class="fix"></div>
           <button class="tickets">Tickets</button>
-        </div> <!-- end item-right -->
-      </div> <!-- end item -->
+        </div>
+        <!-- end item-right -->
+      </div>
+      <!-- end item -->
     </div>
   </div>
 </template>
 
 <script>
-import QrcodeVue from 'qrcode.vue'
+import QrcodeVue from "qrcode.vue";
 import axios from "axios";
 export default {
   name: "MyTicket",
@@ -61,8 +80,10 @@ export default {
     return {
       tickets: {},
       concerts: {},
-      user_id: JSON.parse(localStorage.getItem("auth")) ? JSON.parse(localStorage.getItem("auth")).user._id : null,
-      value: 'http://localhost:3000/profile/',
+      user_id: JSON.parse(localStorage.getItem("auth"))
+        ? JSON.parse(localStorage.getItem("auth")).user._id
+        : null,
+      value: "http://localhost:3000/profile/",
       size: 300,
     };
   },
@@ -76,10 +97,10 @@ export default {
       axios(config)
         .then((response) => {
           this.tickets = response.data.bookingData;
-          const results = this.tickets.filter(obj => {
-            return obj.user_id === this.user_id
-          })
-          this.tickets = results
+          const results = this.tickets.filter((obj) => {
+            return obj.user_id === this.user_id;
+          });
+          this.tickets = results;
         })
         .catch((error) => {
           console.log(error);
@@ -104,17 +125,17 @@ export default {
 }
 
 body {
-  font-family: 'Inknut Antiqua', serif;
-  font-family: 'Ravi Prakash', cursive;
-  font-family: 'Lora', serif;
-  font-family: 'Indie Flower', cursive;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Inknut Antiqua", serif;
+  font-family: "Ravi Prakash", cursive;
+  font-family: "Lora", serif;
+  font-family: "Indie Flower", cursive;
+  font-family: "Cabin", sans-serif;
 }
 
 div.container {
   max-width: 1350px;
   margin: 0 auto;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .upcoming {
@@ -129,15 +150,15 @@ div.container {
   width: 48%;
   float: left;
   padding: 0 20px;
-  background: #DDD;
+  background: #ddd;
   overflow: hidden;
-  margin: 10px
+  margin: 10px;
 }
 
 .container .item-right,
 .container .item-left {
   float: left;
-  padding: 20px
+  padding: 20px;
 }
 
 .container .item-right {
@@ -145,7 +166,7 @@ div.container {
   margin-right: 20px;
   width: 25%;
   position: relative;
-  height: 286px
+  height: 286px;
 }
 
 .container .item-right .up-border,
@@ -153,7 +174,7 @@ div.container {
   padding: 14px 15px;
   background-color: #ddd;
   border-radius: 50%;
-  position: absolute
+  position: absolute;
 }
 
 .container .item-right .up-border {
@@ -169,7 +190,7 @@ div.container {
 .container .item-right .num {
   font-size: 60px;
   text-align: center;
-  color: #111
+  color: #111;
 }
 
 .container .item-right .day,
@@ -193,12 +214,12 @@ div.container {
 .container .item-left .title {
   color: #111;
   font-size: 34px;
-  margin-bottom: 12px
+  margin-bottom: 12px;
 }
 
 .container .item-left .sce {
   margin-top: 5px;
-  display: block
+  display: block;
 }
 
 .container .item-left .sce .icon,
@@ -216,15 +237,15 @@ div.container {
 .container .item-left .loc .icon {
   margin-right: 10px;
   font-size: 20px;
-  color: #666
+  color: #666;
 }
 
 .container .item-left .loc {
-  display: block
+  display: block;
 }
 
 .fix {
-  clear: both
+  clear: both;
 }
 
 .container .item .tickets,
@@ -236,33 +257,33 @@ div.container {
   margin-top: 10px;
   font-size: 18px;
   border: none;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .container .item .tickets {
-  background: #777
+  background: #777;
 }
 
 .container .item .booked {
-  background: #3D71E9
+  background: #3d71e9;
 }
 
 .container .item .cancel {
-  background: #DF5454
+  background: #df5454;
 }
 
 .linethrough {
-  text-decoration: line-through
+  text-decoration: line-through;
 }
 
 @media only screen and (max-width: 1150px) {
   .container .item {
     width: 100%;
-    margin-right: 20px
+    margin-right: 20px;
   }
 
   div.container {
-    margin: 0 20px auto
+    margin: 0 20px auto;
   }
 }
 </style>

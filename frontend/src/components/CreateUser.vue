@@ -1,6 +1,4 @@
 <template>
-
-
   <section>
     <section class="hero is-primary is-fullheight">
       <div class="hero-body">
@@ -13,7 +11,13 @@
                 <div class="field">
                   <label for="" class="label">Firstname</label>
                   <div class="control has-icons-left">
-                    <input v-model="firstname" type="text" placeholder="firstname" class="input" required />
+                    <input
+                      v-model="firstname"
+                      type="text"
+                      placeholder="firstname"
+                      class="input"
+                      required
+                    />
                     <span class="icon is-small is-left">
                       <i class="fa fa-info"></i>
                     </span>
@@ -23,7 +27,13 @@
                 <div class="field">
                   <label for="" class="label">Lastname</label>
                   <div class="control has-icons-left">
-                    <input v-model="lastname" type="text" placeholder="lastname" class="input" required />
+                    <input
+                      v-model="lastname"
+                      type="text"
+                      placeholder="lastname"
+                      class="input"
+                      required
+                    />
                     <span class="icon is-small is-left">
                       <i class="fa fa-info"></i>
                     </span>
@@ -43,7 +53,28 @@
                 <div class="field">
                   <label for="" class="label">Address</label>
                   <div class="control has-icons-left">
-                    <input v-model="address" type="text" placeholder="address" class="input" required />
+                    <input
+                      v-model="address"
+                      type="text"
+                      placeholder="address"
+                      class="input"
+                      required
+                    />
+                    <span class="icon is-small is-left">
+                      <i class="fa fa-map-marker"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="" class="label">Avatar Url</label>
+                  <div class="control has-icons-left">
+                    <input
+                      v-model="avatar_url"
+                      type="text"
+                      placeholder="avatar url"
+                      class="input"
+                      required
+                    />
                     <span class="icon is-small is-left">
                       <i class="fa fa-map-marker"></i>
                     </span>
@@ -53,13 +84,24 @@
                 <div class="field">
                   <label for="" class="label">Password</label>
                   <div class="control has-icons-left">
-                    <input v-model="password" type="text" placeholder="password" class="input" required />
+                    <input
+                      v-model="password"
+                      type="text"
+                      placeholder="password"
+                      class="input"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="field">
                   <label for="" class="label">Roles</label>
                   <div class="control has-icons-left">
-                    <input v-model="roles" type="text" placeholder="roles" class="input" />
+                    <input
+                      v-model="roles"
+                      type="text"
+                      placeholder="roles"
+                      class="input"
+                    />
                     <span class="icon is-small is-left">
                       <i class="fa fa-info"></i>
                     </span>
@@ -67,7 +109,11 @@
                 </div>
 
                 <div class="field">
-                  <button type="submit" v-on:click="this.createUser()" class="button is-success">
+                  <button
+                    type="submit"
+                    v-on:click="this.createUser()"
+                    class="button is-success"
+                  >
                     Crée
                   </button>
                 </div>
@@ -78,8 +124,6 @@
       </div>
     </section>
   </section>
-
-
 </template>
 
 <script>
@@ -93,12 +137,18 @@ export default {
       address: "",
       password: "",
       roles: "",
+      avatar_url: "",
       token: JSON.parse(localStorage.getItem("auth")).token
         ? JSON.parse(localStorage.getItem("auth")).token
         : null,
-      isAdmin: JSON.parse(localStorage.getItem("auth")) ? JSON.parse(localStorage.getItem("auth")).user.roles == "Admin" : null,
-      user_id: JSON.parse(localStorage.getItem("auth")) ? JSON.parse(localStorage.getItem("auth")).user._id : null,
+      isAdmin: JSON.parse(localStorage.getItem("auth"))
+        ? JSON.parse(localStorage.getItem("auth")).user.roles == "Admin"
+        : null,
+      user_id: JSON.parse(localStorage.getItem("auth"))
+        ? JSON.parse(localStorage.getItem("auth")).user._id
+        : null,
       isloggedin: JSON.parse(localStorage.getItem("auth")),
+      avatar_url: "",
     };
   },
   methods: {
@@ -109,7 +159,8 @@ export default {
         email: this.email,
         address: this.address,
         password: this.password,
-        roles: this.roles
+        roles: this.roles,
+        avatar_url: this.avatar_url,
       });
       var config = {
         headers: {
@@ -128,10 +179,8 @@ export default {
       this.$router.push({ path: "/crud" });
     },
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 
-<style>
-</style>
+<style></style>

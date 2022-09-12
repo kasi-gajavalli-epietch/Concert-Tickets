@@ -5,8 +5,12 @@
 
       <!-- AFFICHAGE DYNAMIQUE -->
 
-
-      <div v-for="concert in this.concerts" v-bind:key="concert._id" class="tile is-parent" id="concerts">
+      <div
+        v-for="concert in this.concerts"
+        v-bind:key="concert._id"
+        class="tile is-parent"
+        id="concerts"
+      >
         <div class="tile is-vertical">
           <div class="box">
             <article class="media">
@@ -17,21 +21,26 @@
               </div>
               <div class="media-content">
                 <div class="content">
-                  <p>
-                    <h1><strong>{{ concert.name }}</strong><br></h1>
-                  <p>{{ concert.localisation }}</p>
-                  <br />
-                  {{ concert.description }}
-                  <br>
-                  <h3>{{ concert.show_date }}</h3>
-                  </p>
+                  <div>
+                    <strong>{{ concert.name }}</strong
+                    ><br />
+
+                    <p>{{ concert.localisation }}</p>
+                    <br />
+                    {{ concert.description }}
+                    <br />
+                    {{ concert.show_date }}
+                  </div>
                 </div>
                 <nav class="">
                   <div class="">
-                    <router-link :to="{
-                      name: 'concertdetail',
-                      params: { id: concert._id },
-                    }"><a class="button" onClick="">Buy Tickets</a></router-link>
+                    <router-link
+                      :to="{
+                        name: 'concertdetail',
+                        params: { id: concert._id },
+                      }"
+                      ><a class="button" onClick="">Buy Tickets</a></router-link
+                    >
                   </div>
                 </nav>
               </div>
@@ -64,8 +73,12 @@ export default {
   data() {
     return {
       concerts: {},
-      isAdmin: JSON.parse(localStorage.getItem("auth")) ? JSON.parse(localStorage.getItem("auth")).user.roles == "Admin" : null,
-      user_id: JSON.parse(localStorage.getItem("auth")) ? JSON.parse(localStorage.getItem("auth")).user._id : null,
+      isAdmin: JSON.parse(localStorage.getItem("auth"))
+        ? JSON.parse(localStorage.getItem("auth")).user.roles == "Admin"
+        : null,
+      user_id: JSON.parse(localStorage.getItem("auth"))
+        ? JSON.parse(localStorage.getItem("auth")).user._id
+        : null,
       isloggedin: JSON.parse(localStorage.getItem("auth")),
     };
   },
@@ -94,4 +107,3 @@ export default {
   width: 20vw;
 }
 </style>
-

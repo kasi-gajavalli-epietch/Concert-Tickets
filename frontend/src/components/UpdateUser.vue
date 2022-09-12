@@ -31,7 +31,13 @@
                 <div class="field">
                   <label for="" class="label">Email</label>
                   <div class="control has-icons-left">
-                    <input v-model="this.email" :placeholder="user.email" type="text" class="input" required />
+                    <input
+                      v-model="this.email"
+                      :placeholder="user.email"
+                      type="text"
+                      class="input"
+                      required
+                    />
                     <span class="icon is-small is-left">
                       <i class="fa fa-envelope"></i>
                     </span>
@@ -45,6 +51,19 @@
                     <span class="icon is-small is-left">
                       <i class="fa fa-map-marker"></i>
                     </span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="" class="label">Avatar Url</label>
+                  <div class="control has-icons-left">
+                    <input
+                      v-model="avatar_url"
+                      type="text"
+                      :placeholder="user.avatar_url"
+                      class="input"
+                      required
+                    />
                   </div>
                 </div>
 
@@ -81,7 +100,6 @@
 <script>
 import axios from "axios";
 export default {
-  
   data() {
     return {
       user: {},
@@ -91,6 +109,7 @@ export default {
       address: "",
       password: "",
       roles: "",
+      avatar_url: "",
       token: JSON.parse(localStorage.getItem("auth")).token
         ? JSON.parse(localStorage.getItem("auth")).token
         : null,
@@ -105,6 +124,7 @@ export default {
         address: this.address,
         password: this.password,
         roles: this.roles,
+        avatar_url: this.avatar_url,
       });
 
       axios
@@ -121,7 +141,7 @@ export default {
         });
       this.$router.push({ path: "/crud" });
     },
-    
+
     async getUserById() {
       var config = {
         headers: {
