@@ -3,7 +3,7 @@
 
 ## Click here to view the project: 
 
-        [Concert] (http://46.105.29.192:8080/)  
+[This is an external link to Concert Reservation Site](http://46.105.29.192:8080/)
 
 
 ## USER FUNCTIONALITIES
