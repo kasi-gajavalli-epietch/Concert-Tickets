@@ -1,31 +1,30 @@
 # Concert-Tickets
-*A ticket reservation website for concert / festival tickets with a frontoffice and a backoffice.
+* A ticket reservation website for concert / festival tickets with a frontoffice and a backoffice.
 
 ## Click here to view the project: 
-
 [This is an external link to Concert Reservation Site](http://46.105.29.192:8080/)
 
 
 ## USER FUNCTIONALITIES
 
 ### When not connected:
-    * See the different concerts that are offered.
-    * Register and log in.
+* See the different concerts that are offered.
+* Register and log in.
 
 ### When connected:
-    * Change his email and password.
-    * Book concert tickets.
-    * Have a list of favorite bands
-    * Receive notification when one of the groups in our favorites list is scheduled.
-    * Be able to filter concerts by genre / date / group.
-    * Once the concert is booked, generate a QR code redirecting to the booking link.
+* Change his email and password.
+* Book concert tickets.
+* Have a list of favorite bands
+* Receive notification when one of the groups in our favorites list is scheduled.
+* Be able to filter concerts by genre / date / group.
+* Once the concert is booked, generate a QR code redirecting to the booking link.
 
 ## ADMIN FUNCTIONALITIES
 ### Once an administrator account is logged in:
-    * Create / update / delete an account.
-    * Create / update / delete a concert.
-    * Change a user account to administrator.
-    * Be able to view detailed booking statistics.
+* Create / update / delete an account.
+* Create / update / delete a concert.
+* Change a user account to administrator.
+* Be able to view detailed booking statistics.
 
 ## Technologies
 
